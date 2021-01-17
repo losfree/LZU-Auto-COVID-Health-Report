@@ -38,9 +38,9 @@ def getSubmit(auToken, dailyCookie, info, now, FilledInfo):
         "twfw": "0",  # 体温范围(0为小于37.3摄氏度)
         "sfzx": sfzx[0],  # 是否在校(0离校，1在校)
         "sfgl": "0",  # 是否隔离(0正常，1隔离)
-        "szsf": '河北省',  # 所在省份（没有打卡记录则是基本信息中现所在省份）
-        "szds": '邯郸市',  # 所在地级市（没有打卡记录则是基本信息中现所在地级市）
-        "szxq": '复兴区',  # 所在县/区（没有打卡记录则是基本信息中现所在县/区）
+        "szsf": info_data['szsf'] if info_data['szsf'] else FilledInfo['xszsf'],  # 所在省份（没有打卡记录则是基本信息中现所在省份）
+        "szds": info_data['szds'] if info_data['szds'] else FilledInfo['xszds'],  # 所在地级市（没有打卡记录则是基本信息中现所在地级市）
+        "szxq": info_data['szxq'] if info_data['szxq'] else FilledInfo['xszxq'],  # 所在县/区（没有打卡记录则是基本信息中现所在县/区）
         "sfcg": info_data['sfcg'] if info_data['sfcg'] else FilledInfo['sfcg'],  # 是否出国（没有打卡记录则是基本信息中是否出国）
         "cgdd": info_data['cgdd'] if info_data['cgdd'] else FilledInfo['cgdd'],  # 出国地点（没有打卡记录则是基本信息中出国地点）
         "gldd": "",  # 隔离地点
